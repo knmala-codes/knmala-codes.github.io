@@ -1,151 +1,804 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kanchanamala P | Portfolio</title>
+  <meta charset="UTF-8" />
+  <title>Kanchanamala | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #050816;
+      --bg-card: #0b1020;
+      --accent: #f97316;
+      --accent-soft: rgba(249, 115, 22, 0.15);
+      --accent-strong: #fb923c;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2933;
+      --highlight: #22c55e;
+      --link: #38bdf8;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
+      --radius-lg: 18px;
+      --transition-fast: 200ms ease-out;
+    }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-body{
-    background:#0f172a;
-    color:#f1f5f9;
-    line-height:1.6;
-}
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 36%, #000 70%);
+      color: var(--text-main);
+      font-size: 17px;
+      line-height: 1.7;
+    }
 
-header{
-    text-align:center;
-    padding:100px 20px;
-}
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
 
-header h1{
-    font-size:3rem;
-}
+    a:hover {
+      text-decoration: underline;
+    }
 
-header p{
-    margin-top:15px;
-    font-size:1.2rem;
-    color:#94a3b8;
-}
+    /* Single-column layout */
 
-.btn{
-    display:inline-block;
-    margin-top:25px;
-    padding:10px 20px;
-    background:#2563eb;
-    color:white;
-    border-radius:5px;
-    text-decoration:none;
-    transition:0.3s;
-}
+    .page {
+      min-height: 100vh;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 22px 18px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
 
-.btn:hover{
-    background:#1d4ed8;
-}
+    @media (min-width: 900px) {
+      .page {
+        padding: 30px 10px 50px;
+      }
+    }
 
-section{
-    padding:60px 10%;
-}
+    /* Header (avatar + name + quick info) */
 
-h2{
-    margin-bottom:20px;
-    font-size:2rem;
-    border-left:4px solid #2563eb;
-    padding-left:10px;
-}
+    .header-card {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 18px 16px;
+      border-radius: 20px;
+      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.24), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+    }
 
-.card{
-    background:#1e293b;
-    padding:20px;
-    border-radius:10px;
-    margin:20px 0;
-    transition:0.3s;
-}
+    .avatar-ring {
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      padding: 3px;
+      background: conic-gradient(from 210deg, #f97316, #22c55e, #38bdf8, #f97316);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.9);
+      flex-shrink: 0;
+    }
 
-.card:hover{
-    transform:translateY(-5px);
-}
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: radial-gradient(circle at 30% 0%, #38bdf8 0, #020617 45%, #000 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5e7eb;
+      font-weight: 700;
+      font-size: 38px;
+      letter-spacing: 1px;
+    }
 
-footer{
-    text-align:center;
-    padding:20px;
-    background:#020617;
-    color:#94a3b8;
-}
-</style>
+    .header-main {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.95);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #e5e7eb;
+      margin-bottom: 6px;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--highlight);
+      box-shadow: 0 0 16px rgba(34, 197, 94, 0.9);
+    }
+
+    .name-big {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: linear-gradient(120deg, #f97316, #22c55e, #38bdf8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+    }
+
+    .tagline {
+      margin-top: 4px;
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: #d1d5db;
+    }
+
+    .header-meta-item {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .header-contact {
+      font-size: 14px;
+      color: #d1d5db;
+      margin-top: 4px;
+    }
+
+    .header-contact span {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      display: block;
+    }
+
+    @media (min-width: 900px) {
+      .header-card {
+        align-items: center;
+      }
+    }
+
+    /* Nav */
+
+    .nav {
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 4px;
+      display: flex;
+      gap: 4px;
+      position: sticky;
+      top: 10px;
+      z-index: 20;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.8);
+    }
+
+    .nav-link {
+      flex: 1;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 13px;
+      text-align: center;
+      color: var(--text-muted);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      background: rgba(55, 65, 81, 0.95);
+      color: #e5e7eb;
+      transform: translateY(-1px);
+    }
+
+    .nav-link.active {
+      background: radial-gradient(circle at 0% 0%, rgba(248, 250, 252, 0.12), rgba(55, 65, 81, 0.98));
+      color: #f9fafb;
+      box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.7), 0 12px 28px rgba(15, 23, 42, 0.9);
+    }
+
+    @media (max-width: 600px) {
+      .nav-link {
+        font-size: 12px;
+      }
+    }
+
+    /* Sections */
+
+    .section {
+      margin-top: 18px;
+      padding: 22px 20px 20px;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, rgba(148, 163, 184, 0.26), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: var(--shadow-soft);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 360ms ease-out, transform 360ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section:hover {
+      border-color: rgba(249, 115, 22, 0.7);
+      box-shadow: 0 22px 55px rgba(15, 23, 42, 1);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .section-tag {
+      font-size: 12px;
+      color: var(--accent-strong);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .accent-bar {
+      width: 55px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--highlight), var(--link));
+      margin-bottom: 6px;
+    }
+
+    .lead {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.98);
+      font-size: 12px;
+      color: #e5e7eb;
+    }
+
+    .bullet-list {
+      margin: 8px 0 0;
+      padding-left: 16px;
+      color: var(--text-main);
+    }
+
+    .bullet-list li {
+      margin-bottom: 4px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .project-card {
+      border-radius: 16px;
+      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.25), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 13px 13px 12px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 180ms ease-out, box-shadow 180ms ease-out, border-color 180ms ease-out;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(248, 250, 252, 0.12), transparent 60%);
+      opacity: 0;
+      transition: opacity 220ms ease-out;
+      pointer-events: none;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(249, 115, 22, 0.9);
+      box-shadow: 0 20px 44px rgba(15, 23, 42, 0.95);
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .project-title {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .project-tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.75);
+      background: rgba(15, 23, 42, 0.96);
+      color: #e5e7eb;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .project-desc {
+      font-size: 14px;
+      color: var(--text-main);
+      margin-bottom: 5px;
+    }
+
+    .project-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .meta-pill {
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .timeline-item {
+      border-left: 2px solid rgba(148, 163, 184, 0.8);
+      padding-left: 10px;
+      margin-left: 3px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(249, 115, 22, 0.9);
+      margin-left: -14px;
+      margin-bottom: 3px;
+    }
+
+    .timeline-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .timeline-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .timeline-body {
+      font-size: 14px;
+      color: var(--text-main);
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .footer-note span {
+      color: var(--accent-strong);
+    }
+  </style>
 </head>
 
 <body>
+  <div class="page">
+    <!-- HEADER (name + profile info) -->
+    <header class="header-card">
+      <div class="avatar-ring">
+        <div class="avatar-inner">
+            <img src="myphoto.jpeg" alt="Photo of Kanchanamala P" style="width:100%; height:100%; object-fit:cover; border-radius:999px;" />
+        </div>
+      </div>
+      <div class="header-main">
+        <div class="pill">
+          <span class="pill-dot"></span>
+          <span>Open to Internship opportunities</span>
+        </div>
+        <div class="name-big">
+          Kanchanamala P
+        </div>
+        <p class="tagline">
+          Second-year B.Tech Electronics and Communication Engineering student at VIT Chennai, interested in embedded systems, IoT, and building practical hardware–software projects.
+        </p>
+        <div class="header-meta">
+          <div class="header-meta-item">Chennai, Tamil Nadu, India</div>
+          <div class="header-meta-item">CGPA: 9.3 / 10</div>
+          <div class="header-meta-item">B.Tech ECE · 2024–2028</div>
+        </div>
+        <div class="header-contact">
+          <span>CONTACT</span>
+          <a href="mailto:malakanchana26@gmail.com">malakanchana26@gmail.com</a> · 7299668990
+        </div>
+      </div>
+    </header>
 
-<header>
-    <h1>Kanchanamala P</h1>
-    <p>ECE Student | Embedded Systems | IoT | Machine Learning</p>
-    <a href="#" class="btn">Download Resume</a>
-</header>
+    <!-- NAV -->
+    <nav class="nav">
+      <button class="nav-link active" data-target="about">Profile</button>
+      <button class="nav-link" data-target="projects">Projects</button>
+      <button class="nav-link" data-target="experience">Education</button>
+      <button class="nav-link" data-target="skills">Skills</button>
+    </nav>
 
-<section>
-<h2>About Me</h2>
-<p>
-Second-year ECE student passionate about Embedded Systems, Semiconductor Devices and AI-driven IoT applications.
-I enjoy building real-world systems that combine hardware and intelligent software solutions.
-</p>
-</section>
+    <!-- PROFILE -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Profile</div>
+          <div class="accent-bar"></div>
+        </div>
+        <div class="section-tag">About</div>
+      </div>
+      <p class="lead">
+        I am a second-year Electronics and Communication Engineering student with a strong interest in embedded systems, IoT, and automation-focused problem solving.
+      </p>
+      <p class="lead">
+        I enjoy translating ideas into working prototypes, combining microcontrollers, sensors, and software to build practical solutions and learn industry-relevant engineering practices.
+      </p>
+      <div class="chip-row">
+        <div class="chip">B.Tech ECE · VIT Chennai · 2024–2028</div>
+        <div class="chip">Interested in IoT and embedded internships</div>
+      </div>
+    </section>
 
-<section>
-<h2>Projects</h2>
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Projects</div>
+          <div class="accent-bar"></div>
+        </div>
+        <div class="section-tag">Hands-on</div>
+      </div>
+      <p class="lead">
+        A snapshot of projects spanning embedded systems, IoT automation, analog circuits, and introductory VLSI concepts.
+      </p>
 
-<div class="card">
-<h3>Smart Home Energy Monitoring & Prediction Dashboard</h3>
-<p>IoT + ML system using Raspberry Pi, NodeMCU, InfluxDB & Grafana with forecasting model in Python.</p>
-</div>
+      <div class="projects-grid">
+        <!-- JLDG MOSFET -->
+        <article class="project-card">
+          <div class="project-title-row">
+            <div class="project-title">Junctionless Double Gate MOSFET & CMOS Analysis</div>
+            <div class="project-tag">TCAD · VLSI</div>
+          </div>
+          <p class="project-desc">
+            Simulating junctionless double gate NMOS/PMOS devices using TCAD tools and preparing matched devices for CMOS inverter analysis.
+          </p>
+          <div class="project-meta">
+            <span class="meta-pill">Synopsys Sentaurus</span>
+            <span class="meta-pill">Device characteristics</span>
+            <span class="meta-pill">CMOS basics</span>
+          </div>
+        </article>
 
-<div class="card">
-<h3>Junctionless Double Gate MOSFET Design</h3>
-<p>Simulated device characteristics using Sentaurus TCAD and implemented CMOS inverter in Cadence.</p>
-</div>
+        <!-- Whistle-based Stove -->
+        <article class="project-card">
+          <div class="project-title-row">
+            <div class="project-title">Whistle-Based Smart Gas Stove Automation</div>
+            <div class="project-tag">Embedded</div>
+          </div>
+          <p class="project-desc">
+            Embedded system that detects cooker whistles, counts user-defined targets, and automates gas control for safer cooking.
+          </p>
+          <div class="project-meta">
+            <span class="meta-pill">STM32</span>
+            <span class="meta-pill">Sensors</span>
+            <span class="meta-pill">Kitchen safety</span>
+          </div>
+        </article>
 
-<div class="card">
-<h3>Smart Gas Stove Automation</h3>
-<p>STM32 based whistle-detection system with automated motor control.</p>
-</div>
+        <!-- Smart Home Energy -->
+        <article class="project-card">
+          <div class="project-title-row">
+            <div class="project-title">Smart Home Energy Monitoring & Prediction</div>
+            <div class="project-tag">IoT · ML</div>
+          </div>
+          <p class="project-desc">
+            Home energy monitoring setup with a basic dashboard and a Python model that forecasts household energy usage.
+          </p>
+          <div class="project-meta">
+            <span class="meta-pill">Raspberry Pi</span>
+            <span class="meta-pill">NodeMCU</span>
+            <span class="meta-pill">InfluxDB · Grafana</span>
+          </div>
+        </article>
 
-<div class="card">
-<h3>Morse Code Translator (FPGA)</h3>
-<p>Verilog-based FPGA design for Morse encoding and LED-based output decoding.</p>
-</div>
+        <!-- Morse Code FPGA -->
+        <article class="project-card">
+          <div class="project-title-row">
+            <div class="project-title">Morse Code Translator Using FPGA</div>
+            <div class="project-tag">FPGA</div>
+          </div>
+          <p class="project-desc">
+            Verilog-based FPGA design that converts button-based Morse inputs into ASCII characters with timing logic for dots and dashes.
+          </p>
+          <div class="project-meta">
+            <span class="meta-pill">Verilog</span>
+            <span class="meta-pill">Digital design</span>
+            <span class="meta-pill">Timing logic</span>
+          </div>
+        </article>
 
-</section>
+        <!-- Cell Phone Detector -->
+        <article class="project-card">
+          <div class="project-title-row">
+            <div class="project-title">Cell Phone Detector Using Analog Components</div>
+            <div class="project-tag">Analog</div>
+          </div>
+          <p class="project-desc">
+            Simple mobile signal detection circuit with PCB implementation to sense active cell phones in a nearby region.
+          </p>
+          <div class="project-meta">
+            <span class="meta-pill">Antenna</span>
+            <span class="meta-pill">Op-amp (LM357)</span>
+            <span class="meta-pill">PCB design</span>
+          </div>
+        </article>
 
-<section>
-<h2>Technical Skills</h2>
-<p>Java | Python | Embedded C | Verilog HDL | MATLAB | PCB Design | Grafana</p>
-</section>
+        <!-- IoT Plant Monitoring -->
+        <article class="project-card">
+          <div class="project-title-row">
+            <div class="project-title">IoT-Based Plant Monitoring & Watering</div>
+            <div class="project-tag">Embedded IoT</div>
+          </div>
+          <p class="project-desc">
+            Automated irrigation system that monitors plant environment and controls watering based on sensor readings.
+          </p>
+          <div class="project-meta">
+            <span class="meta-pill">NodeMCU</span>
+            <span class="meta-pill">Environment sensors</span>
+            <span class="meta-pill">Remote monitoring</span>
+          </div>
+        </article>
 
-<section>
-<h2>Leadership</h2>
-<p>Programme Representative – ECE, VIT Chennai</p>
-</section>
+        <!-- Currency Detector -->
+        <article class="project-card">
+          <div class="project-title-row">
+            <div class="project-title">Currency Detector & Total Amount Calculator</div>
+            <div class="project-tag">Embedded</div>
+          </div>
+          <p class="project-desc">
+            Embedded system that detects Indian currency notes using sensors and calculates the total amount.
+          </p>
+          <div class="project-meta">
+            <span class="meta-pill">IR / Color sensors</span>
+            <span class="meta-pill">Embedded logic</span>
+            <span class="meta-pill">User display</span>
+          </div>
+        </article>
+      </div>
+    </section>
 
-<section>
-<h2>Contact</h2>
-<p>
-Email: malakanchana26@gmail.com <br>
-Location: Chennai, India <br>
-LinkedIn: Add your LinkedIn link
-</p>
-</section>
+    <!-- EDUCATION & ROLES -->
+    <section id="experience" class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Education & Roles</div>
+          <div class="accent-bar"></div>
+        </div>
+        <div class="section-tag">Journey</div>
+      </div>
 
-<footer>
-© 2026 Kanchanamala P | Hosted on GitHub Pages
-</footer>
+      <div class="two-col">
+        <div>
+          <h3 style="font-size: 15px; margin-top: 0; margin-bottom: 6px;">Education</h3>
 
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-title">B.Tech in Electronics and Communication Engineering</div>
+            <div class="timeline-meta">Vellore Institute of Technology, Chennai · 2024 – 2028</div>
+            <div class="timeline-body">
+              CGPA: 9.3 / 10. Building strong fundamentals in electronics, embedded systems, communication, and IoT-related domains.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-title">Senior Secondary (CBSE)</div>
+            <div class="timeline-meta">JGVV, Avadi · 2023 – 2024</div>
+            <div class="timeline-body">
+              Scored 458 / 500 (91.6%), maintaining consistent academic performance.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-title">Secondary (CBSE)</div>
+            <div class="timeline-meta">JGVV, Avadi · 2021 – 2022</div>
+            <div class="timeline-body">
+              Scored 473 / 500 (94.6%), with a strong base in mathematics and science.
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-size: 15px; margin-top: 0; margin-bottom: 6px;">Leadership & Activities</h3>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-title">Programme Representative – ECE</div>
+            <div class="timeline-meta">VIT Chennai · 08/2024 – 08/2025</div>
+            <div class="timeline-body">
+              Represented ECE students in academic and departmental discussions, communicating feedback, addressing concerns, and coordinating with faculty and peers.
+            </div>
+          </div>
+
+          <h3 style="font-size: 15px; margin-top: 12px; margin-bottom: 6px;">Workshops & Certifications</h3>
+          <ul class="bullet-list">
+            <li>IoT Automation with Raspberry Pi – IIT Madras (hands-on NodeMCU, Raspberry Pi basics, and IoT automation concepts).</li>
+            <li>Unlocking the IoT Universe: Hands-on Masterclass – VIT Chennai (practical exposure to NodeMCU interfacing and core IoT workflows).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Skills & Interests</div>
+          <div class="accent-bar"></div>
+        </div>
+        <div class="section-tag">Strengths</div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <h3 style="font-size: 15px; margin-top: 0; margin-bottom: 6px;">Technical skills</h3>
+          <ul class="bullet-list">
+            <li>Java, Python, and Embedded C for problem solving and microcontroller programming.</li>
+            <li>Verilog HDL for basic digital design and hardware description.</li>
+            <li>Assembly programming exposure for low-level understanding.</li>
+            <li>PCB design using EasyEDA and circuit implementation.</li>
+            <li>Data visualization and dashboards using Grafana.</li>
+            <li>MATLAB for signal and system-related tasks.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 style="font-size: 15px; margin-top: 0; margin-bottom: 6px;">Interests & soft skills</h3>
+          <ul class="bullet-list">
+            <li>Internet of Things (IoT), embedded systems, and automation & control.</li>
+            <li>Analog and mixed-signal circuits at an introductory level.</li>
+            <li>Time management and attention to detail in academic and project work.</li>
+            <li>Problem solving and clear communication in team settings.</li>
+            <li>Languages: English (Proficient), Tamil (Native), French (Basic).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-note">
+        Always exploring new ways to connect <span>hardware</span> and <span>software</span> for smarter systems.
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const navLinks = document.querySelectorAll(".nav-link");
+    const sections = Array.from(document.querySelectorAll(".section"));
+
+    function setActiveNav(targetId) {
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.dataset.target === targetId);
+      });
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        const targetId = link.dataset.target;
+        const section = document.getElementById(targetId);
+        if (section) {
+          const yOffset = -12;
+          const y = section.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+          setActiveNav(targetId);
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            setActiveNav(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.35,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  </script>
 </body>
+
 </html>
+
