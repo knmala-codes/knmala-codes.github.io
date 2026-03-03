@@ -1,47 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Kanchanamala P | ECE Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f6f8;
-            color: #333;
-        }
-        header {
-            background: #0f172a;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        section {
-            padding: 40px 10%;
-        }
-        h2 {
-            color: #0f172a;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
-        }
-        .project {
-            background: white;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
-        }
-        footer {
-            background: #0f172a;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanchanamala P | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#f1f5f9;
+    line-height:1.6;
+}
+
+header{
+    text-align:center;
+    padding:100px 20px;
+}
+
+header h1{
+    font-size:3rem;
+}
+
+header p{
+    margin-top:15px;
+    font-size:1.2rem;
+    color:#94a3b8;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:10px 20px;
+    background:#2563eb;
+    color:white;
+    border-radius:5px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#1d4ed8;
+}
+
+section{
+    padding:60px 10%;
+}
+
+h2{
+    margin-bottom:20px;
+    font-size:2rem;
+    border-left:4px solid #2563eb;
+    padding-left:10px;
+}
+
+.card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:10px;
+    margin:20px 0;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#020617;
+    color:#94a3b8;
+}
+</style>
 </head>
 
 <body>
@@ -49,90 +88,63 @@
 <header>
     <h1>Kanchanamala P</h1>
     <p>ECE Student | Embedded Systems | IoT | Machine Learning</p>
+    <a href="#" class="btn">Download Resume</a>
 </header>
 
 <section>
-    <h2>About Me</h2>
-    <p>
-        Second-year Electronics and Communication Engineering student at 
-        Vellore Institute of Technology with strong interest in Embedded Systems, 
-        IoT, Semiconductor Devices and AI-driven applications. 
-        Passionate about building real-world hardware + software solutions.
-    </p>
+<h2>About Me</h2>
+<p>
+Second-year ECE student passionate about Embedded Systems, Semiconductor Devices and AI-driven IoT applications.
+I enjoy building real-world systems that combine hardware and intelligent software solutions.
+</p>
 </section>
 
 <section>
-    <h2>Projects</h2>
+<h2>Projects</h2>
 
-    <div class="project">
-        <h3>Smart Home Energy Monitoring & Prediction Dashboard</h3>
-        <p>
-        Built a real-time energy monitoring system using Raspberry Pi, NodeMCU, 
-        InfluxDB and Grafana. Developed ML model in Python to forecast consumption.
-        </p>
-    </div>
+<div class="card">
+<h3>Smart Home Energy Monitoring & Prediction Dashboard</h3>
+<p>IoT + ML system using Raspberry Pi, NodeMCU, InfluxDB & Grafana with forecasting model in Python.</p>
+</div>
 
-    <div class="project">
-        <h3>Junctionless Double Gate MOSFET Design</h3>
-        <p>
-        Simulated JL DG MOSFET in Synopsys Sentaurus and analyzed device characteristics. 
-        Implemented CMOS inverter in Cadence Virtuoso.
-        </p>
-    </div>
+<div class="card">
+<h3>Junctionless Double Gate MOSFET Design</h3>
+<p>Simulated device characteristics using Sentaurus TCAD and implemented CMOS inverter in Cadence.</p>
+</div>
 
-    <div class="project">
-        <h3>Smart Gas Stove Automation</h3>
-        <p>
-        STM32-based system to detect whistles and automatically control gas knob 
-        using motor actuation.
-        </p>
-    </div>
+<div class="card">
+<h3>Smart Gas Stove Automation</h3>
+<p>STM32 based whistle-detection system with automated motor control.</p>
+</div>
 
-    <div class="project">
-        <h3>Morse Code Translator (FPGA)</h3>
-        <p>
-        Designed Verilog-based Morse translator on FPGA with LED output decoding.
-        </p>
-    </div>
+<div class="card">
+<h3>Morse Code Translator (FPGA)</h3>
+<p>Verilog-based FPGA design for Morse encoding and LED-based output decoding.</p>
+</div>
 
 </section>
 
 <section>
-    <h2>Technical Skills</h2>
-    <p>
-        Java • Python • Embedded C • Verilog HDL • MATLAB • 
-        Assembly Programming • PCB Design • Grafana
-    </p>
+<h2>Technical Skills</h2>
+<p>Java | Python | Embedded C | Verilog HDL | MATLAB | PCB Design | Grafana</p>
 </section>
 
 <section>
-    <h2>Leadership</h2>
-    <p>
-        Programme Representative – ECE Department, VIT Chennai  
-        Represented students in academic matters and improved collaboration 
-        between faculty and peers.
-    </p>
+<h2>Leadership</h2>
+<p>Programme Representative – ECE, VIT Chennai</p>
 </section>
 
 <section>
-    <h2>Certifications</h2>
-    <p>
-        IoT Automation with Raspberry Pi – IIT Madras  
-        Unlocking the IoT Universe – VIT Chennai
-    </p>
-</section>
-
-<section>
-    <h2>Contact</h2>
-    <p>
-        📧 Email: malakanchana26@gmail.com <br>
-        📍 Chennai, India <br>
-        🔗 LinkedIn: Add your LinkedIn link here
-    </p>
+<h2>Contact</h2>
+<p>
+Email: malakanchana26@gmail.com <br>
+Location: Chennai, India <br>
+LinkedIn: Add your LinkedIn link
+</p>
 </section>
 
 <footer>
-    © 2026 Kanchanamala P | Built with GitHub Pages
+© 2026 Kanchanamala P | Hosted on GitHub Pages
 </footer>
 
 </body>
